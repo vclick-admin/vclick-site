@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Support — V-click</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>:root{--bg:#FFFBF5;--surface:#F5F0E8;--border:#E8E2D8;--text:#3C3C3C;--muted:#888880;--teal:#5aabab;--teal-dark:#3d8a8a;--teal-light:#e8f5f5}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-weight:300;font-size:16px;line-height:1.7}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;background:rgba(255,251,245,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-logo-text{font-family:'Outfit';font-weight:300;font-size:22px;color:var(--text)}
+.nav-center{display:flex;gap:4px}
+.tab-btn{background:none;border:none;cursor:pointer;font-family:'Outfit',sans-serif;font-weight:400;font-size:14px;color:var(--muted);padding:6px 14px;border-radius:20px;transition:all 0.2s;text-decoration:none;display:inline-block}
+.tab-btn:hover{color:var(--text);background:var(--surface)}
+.tab-btn.active{color:var(--teal-dark);background:var(--teal-light);font-weight:500}
+.nav-lang{display:flex;gap:2px}
+.lang-btn{background:none;border:1px solid transparent;cursor:pointer;font-family:'Outfit',sans-serif;font-size:13px;font-weight:400;color:var(--muted);padding:5px 10px;border-radius:6px;transition:all 0.2s}
+.lang-btn:hover{color:var(--text)}
+.lang-btn.active{color:var(--teal-dark);border-color:var(--teal);background:var(--teal-light)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.burger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);padding:16px 20px 24px;z-index:199;flex-direction:column;gap:4px;box-shadow:0 8px 24px rgba(60,60,60,0.08)}
+.mobile-menu.open{display:flex}
+.mobile-menu .tab-btn{text-align:left;font-size:16px;padding:12px 16px;border-radius:12px}
+.mobile-menu .lang-row{display:flex;gap:8px;margin-top:12px}
+.mobile-menu .lang-btn{flex:1;text-align:center;padding:10px;border-radius:10px;font-size:14px}
+.doc-page{max-width:760px;margin:0 auto;padding:80px 40px}
+.doc-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);font-weight:500;margin-bottom:16px}
+.doc-title{font-family:'DM Serif Display',serif;font-size:40px;color:var(--text);margin-bottom:8px;letter-spacing:-1px}
+.doc-date{font-size:13px;color:var(--muted);margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.doc-section{margin-bottom:48px}
+.doc-section-title{font-size:18px;font-weight:500;color:var(--text);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.doc-section p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:12px}
+.doc-section ul{list-style:none;padding:0}
+.doc-section ul li{font-size:15px;color:var(--muted);padding:8px 0 8px 24px;position:relative;line-height:1.6}
+.doc-section ul li::before{content:'';position:absolute;left:0;top:18px;width:6px;height:6px;border-radius:50%;background:var(--teal)}
+.doc-highlight{background:var(--teal-light);border-left:3px solid var(--teal);padding:16px 20px;border-radius:0 12px 12px 0;margin:16px 0;font-size:14px;color:var(--text);line-height:1.7}
+.doc-contact{background:var(--surface);border-radius:16px;padding:24px 28px;margin-top:16px}
+.doc-contact p{font-size:15px;color:var(--text);margin-bottom:8px}
+.doc-contact a{color:var(--teal);text-decoration:none}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:40px 80px;display:flex;align-items:center;justify-content:space-between}
+.footer-logo{display:flex;align-items:center;gap:8px}
+.footer-logo-text{font-family:'Outfit';font-weight:300;font-size:18px;color:var(--text)}
+.footer-copy{font-size:12px;color:var(--muted)}
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-center,.nav-lang{display:none}
+  .burger{display:flex}
+  .doc-page{padding:40px 20px 60px}
+  .doc-title{font-size:30px}
+  .doc-section-title{font-size:16px}
+  footer{flex-direction:column;gap:20px;padding:32px 20px;text-align:center}
+}</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/"><svg style="width:36px;height:36px;" viewBox="127 27 255 250" fill="none"><path d="M355.83 52.85L252.16 213.902L185.22 118.03" stroke="#5aabab" stroke-width="32.175" stroke-linecap="round" stroke-linejoin="round"/><path d="M363.188 126.39 L363.188 235.068 Q363.188 263.25 335.013 263.25 L169.309 263.25 Q141.133 263.25 141.133 235.068 L141.133 69.1332 Q141.133 40.9497 169.309 40.9497 L300 40.9497" stroke="#3C3C3C" stroke-width="26.325" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><span class="nav-logo-text">click</span></a>
+  <div class="nav-center"><a class="tab-btn" href="/"><span class="ua-text">Головна</span><span class="en-text" style="display:none">Home</span></a><a class="tab-btn" href="/privacy"><span class="ua-text">Конфіденційність</span><span class="en-text" style="display:none">Privacy Policy</span></a><a class="tab-btn" href="/terms"><span class="ua-text">Умови використання</span><span class="en-text" style="display:none">Terms of Use</span></a><a class="tab-btn active" href="/support"><span class="ua-text">Підтримка</span><span class="en-text" style="display:none">Support</span></a></div>
+  <div class="nav-lang"><button class="lang-btn active" id="lang-ua">УКР</button><button class="lang-btn" id="lang-en">ENG</button></div>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a class="tab-btn" href="/"><span class="ua-text">Головна</span><span class="en-text" style="display:none">Home</span></a><a class="tab-btn" href="/privacy"><span class="ua-text">Конфіденційність</span><span class="en-text" style="display:none">Privacy Policy</span></a><a class="tab-btn" href="/terms"><span class="ua-text">Умови використання</span><span class="en-text" style="display:none">Terms of Use</span></a><a class="tab-btn active" href="/support"><span class="ua-text">Підтримка</span><span class="en-text" style="display:none">Support</span></a>
+  <div class="lang-row"><button class="lang-btn active" id="m-lang-ua">УКР</button><button class="lang-btn" id="m-lang-en">ENG</button></div>
+</div>
+<div style="padding-top:64px;min-height:100vh;">
+<div class="support-page">
+  <div class="doc-eyebrow ua-text">Зворотній зв'язок</div>
+  <div class="doc-eyebrow en-text" style="display:none">Get in touch</div>
+  <h1 class="doc-title ua-text">Підтримка</h1>
+  <h1 class="doc-title en-text" style="display:none">Support</h1>
+  <p class="support-intro ua-text">Вас вітає команда V-click! Тут ви можете надіслати пропозиції, побажання або скарги щодо користування нашим застосунком.</p>
+  <p class="support-intro en-text" style="display:none">You are greeted by the V-click team! Here you can send suggestions, wishes, or complaints regarding the use of our application.</p>
+  <div id="support-form-wrap">
+    <div class="form-group"><label class="form-label ua-text">Ваше ім'я</label><label class="form-label en-text" style="display:none">Your name</label><input class="form-input" type="text" id="f-name"></div>
+    <div class="form-group"><label class="form-label ua-text">Email для відповіді</label><label class="form-label en-text" style="display:none">Reply email</label><input class="form-input" type="email" id="f-email"></div>
+    <div class="form-group"><label class="form-label ua-text">Тема</label><label class="form-label en-text" style="display:none">Subject</label><input class="form-input" type="text" id="f-subject"></div>
+    <div class="form-group"><label class="form-label ua-text">Повідомлення</label><label class="form-label en-text" style="display:none">Message</label><textarea class="form-textarea" id="f-message"></textarea></div>
+    <button class="form-submit"><span class="ua-text">Надіслати повідомлення</span><span class="en-text" style="display:none">Send message</span></button>
+    <div class="support-alt">
+      <span class="ua-text">Або напишіть нам напряму на </span>
+      <span class="en-text" style="display:none">Or write directly to </span>
+      <a href="mailto:vclick.email@gmail.com">vclick.email@gmail.com</a>
+    </div>
+  </div>
+  <div class="form-success" id="form-success">
+    <div class="icon">✅</div>
+    <p class="ua-text">Дякуємо! Ваше повідомлення надіслано. Ми відповімо якнайшвидше.</p>
+    <p class="en-text" style="display:none">Thank you! Your message has been sent. We will get back to you as soon as possible.</p>
+  </div>
+</div>
+</div>
+<footer>
+  <div class="footer-logo"><a href="/" style="display:flex;align-items:center;gap:8px;text-decoration:none"><svg style="width:28px;height:28px;" viewBox="127 27 255 250" fill="none"><path d="M355.83 52.85L252.16 213.902L185.22 118.03" stroke="#5aabab" stroke-width="32.175" stroke-linecap="round" stroke-linejoin="round"/><path d="M363.188 126.39 L363.188 235.068 Q363.188 263.25 335.013 263.25 L169.309 263.25 Q141.133 263.25 141.133 235.068 L141.133 69.1332 Q141.133 40.9497 169.309 40.9497 L300 40.9497" stroke="#3C3C3C" stroke-width="26.325" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><span class="footer-logo-text">click</span></a></div>
+  <div class="footer-links-legal">
+    <a href="/privacy" class="ua-text" style="font-size:13px;color:var(--muted);text-decoration:none;">Конфіденційність</a>
+    <a href="/privacy" class="en-text" style="font-size:13px;color:var(--muted);text-decoration:none;display:none">Privacy Policy</a>
+    <span style="font-size:13px;color:var(--border);margin:0 8px">·</span>
+    <a href="/terms" class="ua-text" style="font-size:13px;color:var(--muted);text-decoration:none;">Умови використання</a>
+    <a href="/terms" class="en-text" style="font-size:13px;color:var(--muted);text-decoration:none;display:none">Terms of Use</a>
+  </div>
+  <a href="mailto:vclick.email@gmail.com" style="font-size:13px;color:var(--muted);text-decoration:none;">vclick.email@gmail.com</a>
+  <div class="footer-copy">© 2025 Serhii Dobrozhanskyi</div>
+</footer>
+<script>
+(function(){
+  var bl=navigator.language.startsWith('uk')?'ua':'en';
+  var lang=localStorage.getItem('vclick_lang')||bl;
+  function setLang(l){
+    lang=l; localStorage.setItem('vclick_lang',l);
+    ['lang-ua','m-lang-ua'].forEach(function(id){var e=document.getElementById(id);if(e)e.classList.toggle('active',l==='ua');});
+    ['lang-en','m-lang-en'].forEach(function(id){var e=document.getElementById(id);if(e)e.classList.toggle('active',l==='en');});
+    document.querySelectorAll('.ua-text').forEach(function(e){e.style.display=l==='ua'?'':'none';});
+    document.querySelectorAll('.en-text').forEach(function(e){e.style.display=l==='en'?'':'none';});
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    setLang(lang);
+    var lua=document.getElementById('lang-ua'); if(lua)lua.addEventListener('click',function(){setLang('ua');});
+    var len=document.getElementById('lang-en'); if(len)len.addEventListener('click',function(){setLang('en');});
+    var mua=document.getElementById('m-lang-ua'); if(mua)mua.addEventListener('click',function(){setLang('ua');});
+    var men=document.getElementById('m-lang-en'); if(men)men.addEventListener('click',function(){setLang('en');});
+    var burger=document.getElementById('burger');
+    var menu=document.getElementById('mobile-menu');
+    if(burger){burger.addEventListener('click',function(){burger.classList.toggle('open');menu.classList.toggle('open');});}
+    document.querySelectorAll('#mobile-menu a').forEach(function(a){a.addEventListener('click',function(){burger.classList.remove('open');menu.classList.remove('open');});});
+  });
+})();
+</script>
+<script>
+(function(){
+  function submit(){
+    var name=document.getElementById('f-name').value.trim();
+    var email=document.getElementById('f-email').value.trim();
+    var msg=document.getElementById('f-message').value.trim();
+    var l=localStorage.getItem('vclick_lang')||'ua';
+    if(!name||!email||!msg){alert(l==='ua'?'Будь ласка, заповніть всі поля.':'Please fill in all fields.');return;}
+    var subj=document.getElementById('f-subject').value||'V-click Support';
+    window.location.href='mailto:vclick.email@gmail.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent('Name: '+name+'\n\n'+msg);
+    document.getElementById('support-form-wrap').style.display='none';
+    document.getElementById('form-success').style.display='block';
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var btn=document.querySelector('.form-submit'); if(btn)btn.addEventListener('click',submit);
+  });
+})();
+</script>
+</body>
+</html>
