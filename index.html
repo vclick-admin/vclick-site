@@ -3,20 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>V-click — Daily Challenge App</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<title>Виклик (V-click) — трекер челенджів для iPhone</title>
+<meta name="description" content="Застосунок для iPhone, щоб доводити челенджі до кінця: обираєш, скільки днів, тиснеш раз на день, і календар заповнюється. 7, 21, 30 або 100 днів.">
+<link rel="canonical" href="https://v-click.app/">
+<meta name="apple-itunes-app" content="app-id=6749016347">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 <style>:root{--bg:#FFFBF5;--surface:#F5F0E8;--border:#E8E2D8;--text:#3C3C3C;--muted:#888880;--teal:#5aabab;--teal-dark:#3d8a8a;--teal-light:#e8f5f5}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-weight:300;font-size:16px;line-height:1.7}
+body{background:var(--bg);color:var(--text);font-family:'Outfit','Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;background:rgba(255,251,245,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
 .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
 .nav-logo-text{font-family:'Outfit';font-weight:300;font-size:22px;color:var(--text)}
 .nav-center{display:flex;gap:4px}
-.tab-btn{background:none;border:none;cursor:pointer;font-family:'Outfit',sans-serif;font-weight:400;font-size:14px;color:var(--muted);padding:6px 14px;border-radius:20px;transition:all 0.2s;text-decoration:none;display:inline-block}
+.tab-btn{background:none;border:none;cursor:pointer;font-family:'Outfit','Manrope',sans-serif;font-weight:400;font-size:14px;color:var(--muted);padding:6px 14px;border-radius:20px;transition:all 0.2s;text-decoration:none;display:inline-block}
 .tab-btn:hover{color:var(--text);background:var(--surface)}
 .tab-btn.active{color:var(--teal-dark);background:var(--teal-light);font-weight:500}
 .nav-lang{display:flex;gap:2px}
-.lang-btn{background:none;border:1px solid transparent;cursor:pointer;font-family:'Outfit',sans-serif;font-size:13px;font-weight:400;color:var(--muted);padding:5px 10px;border-radius:6px;transition:all 0.2s}
+.lang-btn{background:none;border:1px solid transparent;cursor:pointer;font-family:'Outfit','Manrope',sans-serif;font-size:13px;font-weight:400;color:var(--muted);padding:5px 10px;border-radius:6px;transition:all 0.2s}
 .lang-btn:hover{color:var(--text)}
 .lang-btn.active{color:var(--teal-dark);border-color:var(--teal);background:var(--teal-light)}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
@@ -32,9 +36,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 64px);align-items:center}
 .hero-left{padding:80px 60px 80px 80px;display:flex;flex-direction:column;justify-content:center}
 .hero-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:24px;font-weight:500}
-.hero-title{font-family:'DM Serif Display',serif;font-size:clamp(38px,4vw,56px);line-height:1.15;color:var(--text);margin-bottom:28px;letter-spacing:-1px}
+.hero-title{font-family:'DM Serif Display','Playfair Display',serif;font-size:clamp(38px,4vw,56px);line-height:1.15;color:var(--text);margin-bottom:28px;letter-spacing:-1px}
 .hero-desc{font-size:16px;color:var(--muted);max-width:420px;margin-bottom:40px;line-height:1.75}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:white;padding:14px 28px;border-radius:50px;font-family:'Outfit',sans-serif;font-size:15px;font-weight:500;text-decoration:none;border:none;cursor:pointer;transition:all 0.2s;width:fit-content}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:white;padding:14px 28px;border-radius:50px;font-family:'Outfit','Manrope',sans-serif;font-size:15px;font-weight:500;text-decoration:none;border:none;cursor:pointer;transition:all 0.2s;width:fit-content}
 .btn-primary:hover{background:var(--teal-dark);transform:translateY(-1px);box-shadow:0 8px 24px rgba(90,171,171,0.3)}
 .hero-right{background:var(--surface);height:100%;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .deco-wrap{display:flex;align-items:center;justify-content:center;width:100%;height:100%;position:relative;z-index:1}
@@ -42,7 +46,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 @keyframes slowspin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 .features{padding:100px 80px;background:white}
 .section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);font-weight:500;margin-bottom:16px}
-.section-title{font-family:'DM Serif Display',serif;font-size:clamp(28px,3vw,40px);color:var(--text);margin-bottom:60px;letter-spacing:-0.5px}
+.section-title{font-family:'DM Serif Display','Playfair Display',serif;font-size:clamp(28px,3vw,40px);color:var(--text);margin-bottom:60px;letter-spacing:-0.5px}
 .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
 .feature-card{padding:32px 28px;background:var(--bg);border-radius:20px;border:1px solid var(--border);transition:all 0.2s}
 .feature-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(90,171,171,0.1);border-color:var(--teal)}
@@ -50,11 +54,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .feature-title{font-size:15px;font-weight:500;margin-bottom:10px;color:var(--text)}
 .feature-desc{font-size:14px;color:var(--muted);line-height:1.65}
 .quote-section{padding:100px 80px;text-align:center;background:var(--surface)}
-.big-quote{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,52px);line-height:1.25;color:var(--text);max-width:700px;margin:0 auto 24px;letter-spacing:-1px}
+.big-quote{font-family:'DM Serif Display','Playfair Display',serif;font-size:clamp(28px,4vw,52px);line-height:1.25;color:var(--text);max-width:700px;margin:0 auto 24px;letter-spacing:-1px}
 .quote-sub{font-size:14px;color:var(--muted);letter-spacing:0.5px}
 .doc-page{max-width:760px;margin:0 auto;padding:80px 40px}
 .doc-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);font-weight:500;margin-bottom:16px}
-.doc-title{font-family:'DM Serif Display',serif;font-size:40px;color:var(--text);margin-bottom:8px;letter-spacing:-1px}
+.doc-title{font-family:'DM Serif Display','Playfair Display',serif;font-size:40px;color:var(--text);margin-bottom:8px;letter-spacing:-1px}
 .doc-date{font-size:13px;color:var(--muted);margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border)}
 .doc-intro{font-size:16px;color:var(--muted);margin-bottom:48px;line-height:1.8}
 .doc-section{margin-bottom:48px}
@@ -71,11 +75,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .support-intro{font-size:16px;color:var(--muted);margin-bottom:48px;line-height:1.8}
 .form-group{margin-bottom:24px}
 .form-label{display:block;font-size:13px;font-weight:500;color:var(--text);margin-bottom:8px}
-.form-input,.form-textarea{width:100%;background:white;border:1px solid var(--border);border-radius:12px;padding:14px 18px;font-family:'Outfit',sans-serif;font-size:15px;font-weight:300;color:var(--text);outline:none;transition:all 0.2s}
+.form-input,.form-textarea{width:100%;background:white;border:1px solid var(--border);border-radius:12px;padding:14px 18px;font-family:'Outfit','Manrope',sans-serif;font-size:15px;font-weight:300;color:var(--text);outline:none;transition:all 0.2s}
 .form-input:focus,.form-textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(90,171,171,0.12)}
 .form-textarea{height:150px;resize:vertical}
 .form-input::placeholder,.form-textarea::placeholder{color:#bbb}
-.form-submit{width:100%;background:var(--teal);color:white;border:none;border-radius:50px;padding:16px;font-family:'Outfit',sans-serif;font-size:16px;font-weight:500;cursor:pointer;transition:all 0.2s;margin-top:8px}
+.form-submit{width:100%;background:var(--teal);color:white;border:none;border-radius:50px;padding:16px;font-family:'Outfit','Manrope',sans-serif;font-size:16px;font-weight:500;cursor:pointer;transition:all 0.2s;margin-top:8px}
 .form-submit:hover{background:var(--teal-dark);box-shadow:0 8px 24px rgba(90,171,171,0.3)}
 .support-alt{margin-top:32px;padding:20px 24px;background:var(--surface);border-radius:14px;font-size:14px;color:var(--muted)}
 .support-alt a{color:var(--teal);text-decoration:none}
@@ -87,6 +91,13 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 .footer-logo-text{font-family:'Outfit';font-weight:300;font-size:18px;color:var(--text)}
 .footer-links-legal{display:flex;align-items:center;gap:4px}
 .footer-copy{font-size:12px;color:var(--muted)}
+.guides{padding:100px 80px;background:var(--bg)}
+.guides .section-title{margin-bottom:40px}
+.guides-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.guide-card{display:block;font-family:'Manrope',sans-serif;padding:24px 28px;background:white;border:1px solid var(--border);border-radius:20px;text-decoration:none;transition:all 0.2s}
+.guide-card:hover{border-color:var(--teal);transform:translateY(-2px)}
+.guide-title{display:block;font-size:17px;font-weight:500;color:var(--text);margin-bottom:6px}
+.guide-desc{display:block;font-size:14px;color:var(--muted);line-height:1.6}
 @media(max-width:900px){.features-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){
   nav{padding:0 20px}
@@ -102,6 +113,9 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
   .features-grid{grid-template-columns:1fr;gap:12px}
   .feature-card{padding:24px 20px;display:flex;gap:16px;align-items:flex-start}
   .feature-icon{margin-bottom:0;flex-shrink:0;width:42px;height:42px;font-size:20px}
+  .guides{padding:56px 20px}
+  .guides-grid{grid-template-columns:1fr}
+  .guide-card{padding:20px}
   .quote-section{padding:56px 24px}
   .big-quote{font-size:28px}
   .doc-page{padding:40px 20px 60px}
@@ -175,6 +189,18 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
     <div class="feature-card"><div class="feature-icon">🌟</div><div class="feature-title ua-text">Діліться успіхами</div><div class="feature-title en-text" style="display:none">Share achievements</div><div class="feature-desc ua-text">Діліться своїми досягненнями в соцмережах і мотивуйте інших.</div><div class="feature-desc en-text" style="display:none">Share your achievements on social media and inspire others by your own example.</div></div>
   </div>
 </section>
+<!--guides-->
+<section class="guides ua-text">
+  <div class="section-label">Статті</div>
+  <h2 class="section-title">Перед стартом челенджу</h2>
+  <div class="guides-grid">
+    <a class="guide-card" href="/30-dniv-bez-tsukru"><span class="guide-title">Челендж 30 днів без цукру</span><span class="guide-desc">Що вважати цукром і як знайти його в складі</span></a>
+    <a class="guide-card" href="/askeza"><span class="guide-title">Аскеза</span><span class="guide-desc">На скільки днів брати, як записати, що робити після зриву</span></a>
+    <a class="guide-card" href="/treker-zvychok"><span class="guide-title">Трекер звичок для друку</span><span class="guide-desc">PDF на 21, 30 і 100 днів і трекер на місяць</span></a>
+    <a class="guide-card" href="/zvychka-za-21-den"><span class="guide-title">Звичка за 21 день</span><span class="guide-desc">Звідки ця цифра і скільки днів насправді</span></a>
+  </div>
+</section>
+<!--/guides-->
 <section class="quote-section">
   <div class="big-quote ua-text">Швидко — це повільно,<br>але щодня.</div>
   <div class="big-quote en-text" style="display:none">Fast is slow,<br>but every day.</div>
