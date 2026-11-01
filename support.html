@@ -160,6 +160,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
     ['lang-en','m-lang-en'].forEach(function(id){var e=document.getElementById(id);if(e)e.classList.toggle('active',l==='en');});
     document.querySelectorAll('.ua-text').forEach(function(e){e.style.display=l==='ua'?'':'none';});
     document.querySelectorAll('.en-text').forEach(function(e){e.style.display=l==='en'?'':'none';});
+    document.querySelectorAll('a[href="/"],a[href="/en"]').forEach(function(a){a.setAttribute('href',l==='en'?'/en':'/');});
   }
   document.addEventListener('DOMContentLoaded',function(){
     setLang(lang);
