@@ -1,4 +1,11 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/a/:ct",
+      "destination": "https://apps.apple.com/app/apple-store/id6749016347?ct=:ct&mt=8",
+      "permanent": false
+    }
+  ]
 }
